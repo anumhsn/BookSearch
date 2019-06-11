@@ -14,10 +14,10 @@ titleBtn.addEventListener("click", async () => {
     for (let i = 0; i < booksArr.length; i += 1) {
         const bookCard = document.createElement('div');
         bookCard.innerHTML = `
-        <img src= ${booksArr[i].volumeInfo.imageLinks.smallThumbnail} /> <br>
-        <li>${booksArr[i].volumeInfo.title}</li> <br>
+        <img src= ${booksArr[i].volumeInfo.imageLinks.smallThumbnail} /> 
+        <li>${booksArr[i].volumeInfo.title}</li> 
         
-        <button id ="moreInfo">Click here for more info!</button>
+        <button id ="moreInfo">More info!</button>
         `
         const moreInfo = bookCard.querySelector("#moreInfo");
 
@@ -33,14 +33,14 @@ titleBtn.addEventListener("click", async () => {
 authorBtn.addEventListener("click", async () => {
     showInfo.innerHTML = '';
     const inpt = input.value;
-    const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=inauthor:${inpt}&key=${API_KEY}`)
+    const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=inauthor:${inpt}&key=${API_KEY}&maxResults=40`)
     const authorArr = response.data.items;
     for (let i = 0; i < authorArr.length; i += 1) {
         const bookCard = document.createElement('div');
         bookCard.innerHTML = `<li>
         ${authorArr[i].volumeInfo.authors} , ${authorArr[i].volumeInfo.title}</li>
         <img src= ${authorArr[i].volumeInfo.imageLinks.smallThumbnail} />
-        <button id ="moreInfo">Click here for more info!</button>
+        <button id ="moreInfo">More info!</button>
         `
         const moreInfo = bookCard.querySelector("#moreInfo");
 
@@ -63,7 +63,7 @@ ISBNbtn.addEventListener("click", async () => {
         
          ${ISBNinfo[i].volumeInfo.title}</li>
         <img src= ${ISBNinfo[i].volumeInfo.imageLinks.smallThumbnail} />
-        <button id ="moreInfo">Click here for more info!</button>
+        <button id ="moreInfo">More info!</button>
         `
         const moreInfo = bookCard.querySelector("#moreInfo");
 

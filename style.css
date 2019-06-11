@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 /* HEADER */
 h1{
     text-align: center;
@@ -6,40 +10,100 @@ h1{
 }
 
 nav {
-    /* background: linear-gradient(to right, white, pink); */
     background: linear-gradient(to right, white, pink);
-    display: flex;
+    /* display: flex; */
     justify-content: space-evenly;
     font-size: 20px;
     height: 30px;
-    padding-top: 10px;
+    padding-top: 10px;  
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
+nav a:hover{
+    background-color: white;
+    color: black;
+}
 a{
     text-decoration: none;
     color:gray;
     font-family: 'Major Mono Display', monospace;
     float: right;
+
 }
 
 header{
-    height: 100px;
+    height: 220px;
     margin: 0;
+    background-image: url("https://i.ya-webdesign.com/images/geometric-pattern-black-and-white-png-6.png");
+    position: relative;
 }
 
-div {
+.buttons {
     padding-top: 100px;
     display: flex;
     justify-content: center;
 }
 
+/* nav bar drop down: styling taken from w3schools: https://www.w3schools.com/howto/howto_css_dropdown.asp */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.drop {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.drop a {
+    color: black;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    font-family: Optima, sans-serif;	
+}
+
+.dropdown:hover .drop {
+    display: block;
+}
+.dropbtn{
+    background: transparent;
+    font-family: 'Major Mono Display', monospace; 
+    border: none;
+    color: grey;
+    padding-bottom: 5px;
+    font-size: 18px;
+}
+
+.dropdown a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropbtn{
+    display: block;
+}
+
+
+/* SEARCH BAR */
 button{
     border-radius: 0%;
     width: 100px;
     height: 30px;
-    background-color: lightblue;
-    font-family: Georgia, serif;
+    background-color: black;
+    font-family: Optima, sans-serif	;
     font-size: 18px;
+    color:white;
 }
 
 input {
@@ -50,21 +114,61 @@ input {
     display: flex;
     justify-content: center;
     font-size: 15px;
+    border: 2px solid black;
+
+}
+
+#inpt{
+    padding-bottom: 20px;
 }
 section {
     display: grid;
     grid-template-rows: 350px 350px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 10px 10px;
-
 }
-
+/* OUTPUT */
 section li {
     display: block;
 }
 
 li {
     list-style: none;
+
 }
 
+.content div{
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    height: auto;
+    text-align: center;
+    margin: 0 auto;
+}
 
+#moreInfo{
+    font-size: 14px;
+    margin: auto;
+}
+
+/* ALL BUTTONS */
+button:hover{
+    background-color:white;
+    color: black;
+}
+
+/* MEDIA QUERIES */
+@media only screen 
+and (max-width: 700px){
+    h1{
+        font-size: 40px;
+    }
+    section{
+        grid-template-rows: 350px 350px 350px 350px;
+        grid-template-columns: 1fr 1fr;
+    }
+    input {
+        justify-content: center;
+    }
+
+}
