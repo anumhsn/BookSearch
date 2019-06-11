@@ -1,8 +1,70 @@
+/* HEADER */
 h1{
     text-align: center;
     font-family: 'Major Mono Display', monospace;
+    font-size: 60px;
 }
 
 nav {
+    /* background: linear-gradient(to right, white, pink); */
+    background: linear-gradient(to right, white, pink);
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 20px;
+    height: 30px;
+    padding-top: 10px;
+}
+
+a{
+    text-decoration: none;
+    color:gray;
+    font-family: 'Major Mono Display', monospace;
     float: right;
 }
+
+header{
+    height: 100px;
+    margin: 0;
+}
+
+div {
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    border-radius: 0%;
+    width: 100px;
+    height: 30px;
+    background-color: lightblue;
+    font-family: Georgia, serif;
+    font-size: 18px;
+}
+
+input {
+    margin: auto;
+    padding: 10px;
+    width: 275px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+}
+section {
+    display: grid;
+    grid-template-rows: 350px 350px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px 10px;
+
+}
+
+section li {
+    display: block;
+}
+
+li {
+    list-style: none;
+}
+
+
