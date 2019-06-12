@@ -77,12 +77,16 @@ ISBNbtn.addEventListener("click", async () => {
 })
 
 const giphy = async () => {
-    const response = await axios.get(`http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=${gif_API_KEY}`);
+    const response = await axios.get(`http://api.giphy.com/v1/gifs/random?q=cats&api_key=${gif_API_KEY}&tag=reading`);
     console.log(response);
-    const gif_array = response.data.data[0].embed_url;
+    const gif_array = response.data.data.fixed_height_downsampled_url;
+    // const gif_array = response.data.data[0].id;
     console.log(gif_array);
-    const addgif = document.createElement('div');
-    addgif.innerHTML = `<img src=${gif_array} /> `
+    //const addgif = document.createElement('div id="gif"');
+    const addgif = document.querySelector("#gif");
+    addgif.innerHTML = `
+    <img src="${gif_array}" /> 
+    `
 }
 
 giphy();
