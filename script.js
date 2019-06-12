@@ -4,6 +4,8 @@ const input = document.querySelector("input");
 const showInfo = document.querySelector(".content");
 const ISBNbtn = document.querySelector("#getISBN");
 const API_KEY = "AIzaSyCrIuS7E-4mpw-1wLknE4C30W3_Cb_iGBc";
+const gif_API_KEY = "x3jakeVmUi2kYcyWH3flSs8Ogry8EuUC";
+
 
 titleBtn.addEventListener("click", async () => {
     // getbooksArr();
@@ -28,7 +30,6 @@ titleBtn.addEventListener("click", async () => {
     }
     console.log(booksArr);
 })
-
 
 authorBtn.addEventListener("click", async () => {
     showInfo.innerHTML = '';
@@ -75,4 +76,13 @@ ISBNbtn.addEventListener("click", async () => {
     //console.log(booksArr);
 })
 
+const giphy = async () => {
+    const response = await axios.get(`http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=${gif_API_KEY}`);
+    console.log(response);
+    const gif_array = response.data.data[0].embed_url;
+    console.log(gif_array);
+    const addgif = document.createElement('div');
+    addgif.innerHTML = `<img src=${gif_array} /> `
+}
 
+giphy();
