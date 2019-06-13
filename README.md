@@ -13,5 +13,10 @@ features:
         
     If all goes well with first API:
         add GIPHY API - studying memes
+--------------------------------------------------------------------------------------------------------------
+App: A Wrathful BookSearch
+link: wrathful-booksearch.surge.sh
 
-wrathful-booksearch.surge.sh
+Technologies used: Google Books API
+Installation instructions: Fork and clone this repo. When inside this directory in the terminal, write the command "open index.html", which will open the website onto your browser.
+
