@@ -31,7 +31,7 @@ a{
     color:gray;
     font-family: 'Major Mono Display', monospace;
     float: right;
-
+    cursor:pointer;
 }
 
 header{
@@ -80,6 +80,7 @@ header{
     color: grey;
     padding-bottom: 5px;
     font-size: 18px;
+    cursor:pointer;
 }
 
 .dropdown a {
@@ -104,6 +105,7 @@ button{
     font-family: Optima, sans-serif	;
     font-size: 18px;
     color:white;
+    cursor:pointer;
 }
 
 input {
@@ -131,6 +133,7 @@ section {
     display: flex;
     justify-content: center;
     padding-bottom: 20px;
+
 }
 
 .otherGifs{
@@ -201,5 +204,11 @@ and (max-width: 700px){
         object-fit: cover;
         width: 280px;
         height: auto;   
+    }
+
+    .gif img {
+        object-fit: cover;
+        width: 280px;
+        height: auto;
     }
 }
