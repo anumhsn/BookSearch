@@ -3,8 +3,10 @@ const authorBtn = document.querySelector("#getAuthor");
 const input = document.querySelector("input");
 const showInfo = document.querySelector(".content");
 const ISBNbtn = document.querySelector("#getISBN");
-const API_KEY = "AIzaSyCrIuS7E-4mpw-1wLknE4C30W3_Cb_iGBc";
 const gif_API_KEY = "x3jakeVmUi2kYcyWH3flSs8Ogry8EuUC";
+const addgif = document.querySelector(".gif");
+const othergifs = document.querySelector(".otherGifs")
+
 
 const giphy = async () => {
     let inpt = input.value;
@@ -18,13 +20,18 @@ const giphy = async () => {
 }
 
 const giphyAuthor = () => {
-    const addgif = document.querySelector(".otherGifs");
-    addgif.innerHTML = `<img src="https://media.giphy.com/media/12imXZa2uBqf28/giphy.gif" />`   
+    addgif.innerHTML = ''; 
+    othergifs.innerHTML = '';
+    othergifs.innerHTML = `<img src="https://media.giphy.com/media/12imXZa2uBqf28/giphy.gif" />`   
 }
 
 titleBtn.addEventListener("click", async () => {
     giphy();
     showInfo.innerHTML = '';
+    addgif.innerHTML = '';
+    // othergifs.innerHTML = '';
+    othergifs.style.display = "none";
+
     let inpt = input.value;
     const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=intitle:${inpt}&key=${API_KEY}&maxResults=40`)
     const booksArr = response.data.items;
@@ -49,6 +56,10 @@ titleBtn.addEventListener("click", async () => {
 authorBtn.addEventListener("click", async () => {
     giphyAuthor();
     showInfo.innerHTML = '';
+    addgif.innerHTML = '';
+
+    othergifs.style.display = "flex";
+
     const inpt = input.value;
     const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=inauthor:${inpt}&key=${API_KEY}&maxResults=40`)
     const authorArr = response.data.items;
@@ -60,7 +71,6 @@ authorBtn.addEventListener("click", async () => {
         <button id ="moreInfo">More info!</button>
         `
         const moreInfo = bookCard.querySelector("#moreInfo");
-
         moreInfo.addEventListener("click", function () {
             location.href = authorArr[i].volumeInfo.infoLink;
         })
@@ -70,6 +80,8 @@ authorBtn.addEventListener("click", async () => {
 
 ISBNbtn.addEventListener("click", async () => {
     showInfo.innerHTML = '';
+    addgif.innerHTML = '';
+    othergifs.style.display = "flex";
     const inpt = input.value;
     const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${inpt}&key=${API_KEY}&maxResults=40`)
     const ISBNinfo = response.data.items;

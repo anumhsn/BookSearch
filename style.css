@@ -131,7 +131,7 @@ section {
 .gif {
     display: flex;
     justify-content: center;
-    /* padding-bottom: 20px; */
+    padding-bottom: 20px;
 }
 
 .otherGifs{
@@ -141,7 +141,6 @@ section {
     justify-content: center;
     padding-bottom: 20px;
 }
-
 
 /* OUTPUT */
 section li {
@@ -197,5 +196,8 @@ and (max-width: 700px){
     header{
         height: 180px;
     }
-
+    .otherGifs{
+        height: 200px;
+        width: auto;
+    }
 }
