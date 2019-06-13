@@ -127,6 +127,22 @@ section {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 10px 10px;
 }
+/* GIF */
+.gif {
+    display: flex;
+    justify-content: center;
+    /* padding-bottom: 20px; */
+}
+
+.otherGifs{
+    height: 240px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+
 /* OUTPUT */
 section li {
     display: block;
@@ -157,11 +173,11 @@ button:hover{
     color: black;
 }
 
-/* GIF */
-#gif{
-    display: flex;
-    justify-content: center;
-
+/* FOOTER */
+footer {
+    text-align: center;
+    background: linear-gradient(to right, white, pink);
+    padding-top: 10px;
 }
 
 /* MEDIA QUERIES */

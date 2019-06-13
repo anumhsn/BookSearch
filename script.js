@@ -6,9 +6,24 @@ const ISBNbtn = document.querySelector("#getISBN");
 const API_KEY = "AIzaSyCrIuS7E-4mpw-1wLknE4C30W3_Cb_iGBc";
 const gif_API_KEY = "x3jakeVmUi2kYcyWH3flSs8Ogry8EuUC";
 
+const giphy = async () => {
+    let inpt = input.value;
+    const response = await axios.get(`http://api.giphy.com/v1/gifs/random?q=cats&api_key=${gif_API_KEY}&tag=${inpt}`);
+    console.log(response);
+    const gif_array = response.data.data.fixed_height_downsampled_url;
+    console.log(gif_array);
+    const addgif = document.querySelector(".gif");
+    addgif.innerHTML = `
+    <img src="${gif_array}" />     `
+}
+
+const giphyAuthor = () => {
+    const addgif = document.querySelector(".otherGifs");
+    addgif.innerHTML = `<img src="https://media.giphy.com/media/12imXZa2uBqf28/giphy.gif" />`   
+}
 
 titleBtn.addEventListener("click", async () => {
-    // getbooksArr();
+    giphy();
     showInfo.innerHTML = '';
     let inpt = input.value;
     const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=intitle:${inpt}&key=${API_KEY}&maxResults=40`)
@@ -32,6 +47,7 @@ titleBtn.addEventListener("click", async () => {
 })
 
 authorBtn.addEventListener("click", async () => {
+    giphyAuthor();
     showInfo.innerHTML = '';
     const inpt = input.value;
     const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=inauthor:${inpt}&key=${API_KEY}&maxResults=40`)
@@ -50,7 +66,6 @@ authorBtn.addEventListener("click", async () => {
         })
         showInfo.appendChild(bookCard);
     }
-    //console.log(booksArr);
 })
 
 ISBNbtn.addEventListener("click", async () => {
@@ -73,20 +88,5 @@ ISBNbtn.addEventListener("click", async () => {
         })
         showInfo.appendChild(bookCard);
     }
-    //console.log(booksArr);
 })
 
-const giphy = async () => {
-    const response = await axios.get(`http://api.giphy.com/v1/gifs/random?q=cats&api_key=${gif_API_KEY}&tag=reading`);
-    console.log(response);
-    const gif_array = response.data.data.fixed_height_downsampled_url;
-    // const gif_array = response.data.data[0].id;
-    console.log(gif_array);
-    //const addgif = document.createElement('div id="gif"');
-    const addgif = document.querySelector("#gif");
-    addgif.innerHTML = `
-    <img src="${gif_array}" /> 
-    `
-}
-
-giphy();
